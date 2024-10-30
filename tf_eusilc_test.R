@@ -1,8 +1,6 @@
 library(devtools)
-library(formula.tools)
-library(magic)
 load_all("C:/Users/lynye/Desktop/Diss/Code_Integration/emdi_yj")
-
+#document("C:/Users/lynye/Desktop/Diss/Code_Integration/emdi_yj")
 # Loading data - population and sample data
 data("eusilcA_pop")
 data("eusilcA_smp")
@@ -107,6 +105,7 @@ summary(fit_fh)
 summary(fit_fh_tf)
 summary(fit_fh_tf_arc)
 summary(fit_fh_tf_log)
+
 
 ################################################################################
 res_mean <- true_ind$ind[, c("Domain", "Mean")]

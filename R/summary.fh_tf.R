@@ -51,22 +51,22 @@ summary.fh_tf <- function(object, ...) {
   }
 
   normality <- data.frame(
-    Skewness = c(skewness_res, skewness_random_Sub, skewness_random_Dom),
-    Kurtosis = c(kurtosis_res, kurtosis_random_Sub, kurtosis_random_Dom),
+    Skewness = c(skewness_res, skewness_random_Dom, skewness_random_Sub),
+    Kurtosis = c(kurtosis_res, kurtosis_random_Dom, kurtosis_random_Sub),
     Shapiro_W = c(
       shapiro_res_W,
-      shapiro_random_W_Sub,
-      shapiro_random_p_Dom
+      shapiro_random_W_Dom,
+      shapiro_random_W_Sub
     ),
     Shapiro_p = c(
       shapiro_res_p,
-      shapiro_random_p_Sub,
-      shapiro_random_p_Dom
+      shapiro_random_p_Dom,
+      shapiro_random_p_Sub
     ),
     row.names = c(
       "Residuals",
-      "Random_effects_Subdomain",
-      "Random_effects_Domain"
+      "Random_effects_domain",
+      "Random_effects_subdomain"
     )
   )
 
@@ -95,10 +95,11 @@ print.summary.fh_tf <- function(x, ...) {
   print(x$call)
   cat("\n")
 
-  cat("Out-of-sample subdomains: ", x$out_of_smp_subdomain, "\n")
-  cat("In-sample subdomains: ", x$in_smp_subdomain, "\n")
   cat("Out-of-sample domains: ", x$out_of_smp_domain, "\n")
   cat("In-sample domains: ", x$in_smp_domain, "\n")
+  cat("\n")
+  cat("Out-of-sample subdomains: ", x$out_of_smp_subdomain, "\n")
+  cat("In-sample subdomains: ", x$in_smp_subdomain, "\n")
   cat("\n")
 
   cat("Estimated variance component(s):\n")
@@ -120,7 +121,6 @@ print.summary.fh_tf <- function(x, ...) {
   if (x$transformation == "no") {
     cat("Transformation: No transformation \n")
   } else {
-    cat("Transformation:\n")
-    print(x$transformation)
+    cat("Transformation: ", x$transformation, "\n")
   }
 }

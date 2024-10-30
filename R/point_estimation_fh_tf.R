@@ -226,7 +226,7 @@ point_fh_tf <- function(fixed, vardir, domains, subdomains, nunits, trafo,
   mar_r2 <- var(mar_y_hat)/var(framework$y_ij)
   con_r2 <- var(con_y_hat)/var(framework$y_ij)
   R2 <- c(mar_r2, con_r2)
-  names(R2) <- c("Mar.R2", "Con.R2")
+  names(R2) <- c("Marginal_R2", "Conditional_R2")
   resid <- residuals$y_ij - con_y_hat
 
   # beta coefficient
